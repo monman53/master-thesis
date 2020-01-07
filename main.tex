@@ -1,0 +1,84 @@
+\documentclass[12pt]{jsreport}
+
+% pdfにメタデータを反映させる
+\usepackage[dvipdfmx]{hyperref,graphicx}
+% for hyperref
+\usepackage{pxjahyper}
+\hypersetup{
+	% colorlinks=false, % リンクに色をつけない設定
+	% bookmarks=true, % 以下ブックマークに関する設定
+	% bookmarksnumbered=true,
+	% pdfborder={0 0 0},
+	% bookmarkstype=toc
+}
+
+%\usepackage{gthesis}
+% \usepackage{gthesis_myown}
+
+% \usepackage{amsmath,amsthm,amssymb,ascmac}
+% \usepackage{fancybox}
+% \usepackage{slashbox}
+%\usepackage[dviout]{color,graphics}
+% \usepackage[dvipdfmx]{graphicx}
+% \usepackage[dvipdfmx]{color}
+% \usepackage{psfrag}
+%\usepackage{upgreek}
+% \usepackage{bm}
+% \usepackage{wrapfig}
+%
+% \usepackage{siunitx}
+% \usepackage{subcaption}
+% \usepackage{overpic}
+
+% \input{my-macros}
+\title{DNAゲルのミクロパターン形成の数理モデル \\ の構築と数値的な解析}
+\author{阪本 哲郎}
+\date{2020-01-27}
+
+\begin{document}
+
+%================
+% 表紙
+%================
+\maketitle
+
+%================
+% 目次
+%================
+% ページ数の表記をiからローマ数字に
+\renewcommand{\thepage}{\roman{page}}
+% \setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+
+
+%================
+% 内容
+%================
+% ページ数の表記を1からアラビア数字に
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+
+%----------------
+% 緒論
+%----------------
+\input{introduction.tex}
+\clearpage
+
+%----------------
+% 参考文献
+%----------------
+\bibliography{reference}
+\bibliographystyle{junsrt}
+% \input{chapter2}
+% \clearpage
+% \input{chapter3}
+% \clearpage
+% \input{chapter4}
+% \clearpage
+% \input{conclusion}
+% \input{acknowledgment}
+% \input{reference}
+% \input{appendix}
+% ----------------------------------------------------------------------
+\end{document}

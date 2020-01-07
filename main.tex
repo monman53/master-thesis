@@ -60,9 +60,27 @@
 \renewcommand{\thepage}{\arabic{page}}
 
 %----------------
-% 緒論
+% イントロ
 %----------------
 \input{introduction.tex}
+\clearpage
+
+%----------------
+% より詳しいイントロ
+%----------------
+\input{dnagel.tex}
+\clearpage
+
+%----------------
+% 結論
+%----------------
+\input{conclusion.tex}
+\clearpage
+
+%----------------
+% 謝辞
+%----------------
+\input{acknowledgement.tex}
 \clearpage
 
 %----------------
@@ -70,15 +88,6 @@
 %----------------
 \bibliography{reference}
 \bibliographystyle{junsrt}
-% \input{chapter2}
-% \clearpage
-% \input{chapter3}
-% \clearpage
-% \input{chapter4}
-% \clearpage
-% \input{conclusion}
-% \input{acknowledgment}
-% \input{reference}
 % \input{appendix}
 % ----------------------------------------------------------------------
 \end{document}

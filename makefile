@@ -1,6 +1,6 @@
 all: main.pdf
 
-main.dvi: *.tex
+main.dvi: *.tex reference.bib
 	platex main
 	pbibtex main
 	platex main

@@ -4,6 +4,8 @@ main.dvi: *.tex reference.bib
 	platex main
 	pbibtex main
 	platex main
+	platex main
+	platex main
 
 main.pdf: main.dvi
 	dvipdfmx main

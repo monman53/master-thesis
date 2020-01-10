@@ -1,4 +1,4 @@
-\documentclass[12pt]{jsreport}
+\documentclass[12pt, a4paper]{jsreport}
 
 % pdfにメタデータを反映させる
 \usepackage[dvipdfmx]{hyperref,graphicx}
@@ -12,16 +12,21 @@
 	% bookmarkstype=toc
 }
 
-%\usepackage{gthesis}
-% \usepackage{gthesis_myown}
+% フォント
+\AtBeginDvi{\special{pdf:mapfile ptex-ipa.map}}
 
-% \usepackage{amsmath,amsthm,amssymb,ascmac}
+% 数学関連
+\usepackage{amsmath,amsthm,amssymb,ascmac}
 \usepackage{bm}
+
+% 画像
+\usepackage{svg}
+
+% \usepackage{url}
+
 % \usepackage{fancybox}
 % \usepackage{slashbox}
 %\usepackage[dviout]{color,graphics}
-% \usepackage[dvipdfmx]{graphicx}
-% \usepackage[dvipdfmx]{color}
 % \usepackage{psfrag}
 %\usepackage{upgreek}
 % \usepackage{wrapfig}
@@ -94,6 +99,7 @@
 %----------------
 \bibliography{reference}
 \bibliographystyle{junsrt}
+% \bibliographystyle{plain}
 % \input{appendix}
 % ----------------------------------------------------------------------
 \end{document}

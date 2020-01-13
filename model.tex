@@ -38,7 +38,7 @@
 この状態から，以下のランジュバン方程式を数値的に解いていく．
 
 \begin{equation}
-\label{eq_main}
+\label{eq:main}
 \zeta
 \frac{d}{dt}
 \vec{R}_i
@@ -53,9 +53,9 @@ $\vec{R}_i$は粒子$i$の位置ベクトル，$\zeta$は粘性抵抗を意味�
 $\vec{\xi}_i$は以下の揺動散逸定理を満たす粒子iにおける熱ゆらぎの項である．
 
 \begin{eqnarray}
-\label{langevin0}
+\label{eq:langevin0}
 \langle\vec{\xi}_i\rangle &=& 0, \\
-\label{langevin1}
+\label{eq:langevin1}
 \langle\vec{\xi}_i(t):\vec{\xi}_j(t')\rangle &=& 2T\zeta\delta_{ij}\delta(t-t')\bm{I}.
 \end{eqnarray}
 
@@ -150,6 +150,20 @@ $t=t_{max}$で$T=0$になるような線形アニーリングを再現してい�
 汎用のシミュレーションソフトウェアでの実験は困難であると考えた．
 しかし，モデルは単純であり実装は困難ではないと判断したためシミュレーションプログラムは自ら実装した．
 
-まず，(\ref{eq_main})式を無次元化する．
+まず，(\ref{eq:main})式を無次元化する．
 無次元化された物理量$V$を$\tilde{V}$と表記すると，
 運動方程式は次のようになる．
+
+
+\section{解析方法}
+シミュレーションで得られた構造を定量的に解析する必要がある．
+本研究では構造の特徴として孔の大きさの分布を考えた．
+
+得られた構造と，その構造に対して十分小さなグリッドを持つGeodesic Gridを重ね合わせ，
+三角形が重なり合わないGeodesic Grid上の連続領域を検出することで孔の検出を行った．
+
+このアルゴリズムは球面上の三角形の衝突判定を繰り返し行うことで実現できる．
+
+\subsection{三角形と点の衝突判定}
+
+\subsection{球面上の三角形の衝突判定}

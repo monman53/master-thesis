@@ -1,41 +1,27 @@
 \documentclass[12pt, a4paper]{jsreport}
 
-% pdfにメタデータを反映させる
-\usepackage[dvipdfmx]{hyperref,graphicx}
 % for hyperref
+\usepackage[dvipdfmx]{hyperref,graphicx}
 \usepackage{pxjahyper}
-\hypersetup{
-	% colorlinks=false, % リンクに色をつけない設定
-	% bookmarks=true, % 以下ブックマークに関する設定
-	% bookmarksnumbered=true,
-	% pdfborder={0 0 0},
-	% bookmarkstype=toc
-}
-
+\hypersetup{}
 % フォント
 \AtBeginDvi{\special{pdf:mapfile ptex-ipa.map}}
-
 % 数学関連
 \usepackage{amsmath,amsthm,amssymb,ascmac}
 \usepackage{bm}
-
 % 画像
 \usepackage{svg}
+% 単位
+\usepackage{siunitx}
 
 % \usepackage{url}
-
 % \usepackage{fancybox}
 % \usepackage{slashbox}
-%\usepackage[dviout]{color,graphics}
 % \usepackage{psfrag}
 %\usepackage{upgreek}
 % \usepackage{wrapfig}
-%
-% \usepackage{siunitx}
-% \usepackage{subcaption}
-% \usepackage{overpic}
-
 % \input{my-macros}
+
 \title{DNAゲルのミクロパターン形成の数理モデル \\ の構築と数値的な解析}
 \author{阪本 哲郎}
 \date{2020-01-27}

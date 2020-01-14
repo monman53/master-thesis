@@ -37,13 +37,31 @@
 各粒子は隣接する6つの粒子と自然長$0$のバネで接続される．
 この状態から，以下のランジュバン方程式を数値的に解いていく．
 
+
+\begin{figure}
+\centering
+\includesvg{image/model_2d.svg}
+\caption{
+    Araki~\cite{araki2005simple}らのモデルの概要．
+    (a) 初期状態．計算点である粒子が六方格子上に等間隔に配置され，
+        隣接する6つの粒子と自然長$0$で長さ$l_0$のバネにより接続される．
+        空間は周期境界条件が適用される．
+    (b) 初期配置の拡大図．
+    (c) シミュレーションの時間発展の様子．
+        粒子の熱ゆらぎと共に，
+        接続されていたバネが次第に切断されていくことで粘弾性相分離現象が再現される．
+}
+\label{fig:model_2d}
+\end{figure}
+
+
 \begin{equation}
 \label{eq:main}
 \zeta
 \frac{d}{dt}
 \vec{R}_i
 =
--\frac{d}{d\vec{R}_i}
+-\frac{\partial}{\partial\vec{R}_i}
 U_{tot}\{\vec{R}_i\}
 +\vec{\xi}_i
 .
@@ -150,12 +168,29 @@ $t=t_{max}$で$T=0$になるような線形アニーリングを再現してい�
 汎用のシミュレーションソフトウェアでの実験は困難であると考えた．
 しかし，モデルは単純であり実装は困難ではないと判断したためシミュレーションプログラムは自ら実装した．
 
-まず，(\ref{eq:main})式を無次元化する．
-無次元化された物理量$V$を$\tilde{V}$と表記すると，
-運動方程式は次のようになる．
+まず，オイラー法による計算を考え，運動方程式(\ref{eq:main})を次のように離散化した．
+\begin{eqnarray}
+    \vec{R}_i(t+\Delta t) &=& 
+    \vec{R}(t)_i
+    -\frac{1}{\zeta}\frac{\partial}{\partial\vec{R}_i(t)}U(\vec{R}_i(t))\Delta t
+    +\chi\sqrt{\frac{2k_B T}{\zeta}\Delta t}
+    .
+\end{eqnarray}
+
+次に，各物理量をそれぞれ
+$x=l_0 \tilde{x}$，
+$t=t_0 \tilde{t}$，
+$\zeta=\kappa t_0 \tilde{\zeta}$，
+$E=\frac{1}{2}\kappa\l_0^2\tilde{E}$
+でスケールし無次元化した．
 
 
-\section{解析方法}
+プログラムはC++言語で記述し，ベクトル計算にEigen~\cite{eigenweb}を使用した．
+データの可視化にはParaView~\cite{paraview}とPOV-Ray~\cite{povray}をそれぞれ用いた．
+計算はラップトップPC上(Intel Core i5-7300U CPU)で並列実行した．
+
+
+\section{解析}
 シミュレーションで得られた構造を定量的に解析する必要がある．
 本研究では構造の特徴として孔の大きさの分布を考えた．
 

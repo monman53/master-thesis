@@ -1,5 +1,9 @@
 \documentclass[12pt, a4paper]{jsreport}
 
+%================
+% パッケージ・マクロ
+%================
+
 % for hyperref
 \usepackage[dvipdfmx]{hyperref,graphicx}
 \usepackage{pxjahyper}
@@ -14,17 +18,16 @@
 % 単位
 \usepackage{siunitx}
 
-% \usepackage{url}
-% \usepackage{fancybox}
-% \usepackage{slashbox}
-% \usepackage{psfrag}
-%\usepackage{upgreek}
-% \usepackage{wrapfig}
-% \input{my-macros}
+
+%================
+% メタ情報
+%================
 
 \title{DNAゲルのミクロパターン形成の数理モデル \\ の構築と数値的な解析}
 \author{阪本 哲郎}
 \date{2020-01-27}
+
+
 
 \begin{document}
 
@@ -33,12 +36,19 @@
 %================
 \maketitle
 
+% ページ数の表記をiからローマ数字に
+\renewcommand{\thepage}{\roman{page}}
+\setcounter{tocdepth}{2}
+
+%================
+% 概要
+%================
+\input{abstract.tex}
+\clearpage
+
 %================
 % 目次
 %================
-% ページ数の表記をiからローマ数字に
-\renewcommand{\thepage}{\roman{page}}
-% \setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
 

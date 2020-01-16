@@ -96,7 +96,7 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 \centering
 \includesvg{image/result_2d_anearing_speed.svg}
 \caption{
-    名麺モデルにおける構造のアニーリング速度依存性．
+    平面モデルにおける構造のアニーリング速度依存性．
     温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
     式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
     画像は，$t=t_{max}$のときの構造のCGである．
@@ -140,6 +140,12 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 
 \subsection{温度変化あり}
 
+温度変化ありの場合のシミュレーション結果を図\ref{fig:result_sphere_with_anearing}に示す．
+平面モデルと同じように，
+初めに形成された小さな孔が次第に成長する様子が確認された．
+最終状態のパターンに関して，
+実験条件を変えて解析を行った．
+
 \begin{figure}
 \centering
 \includesvg{image/result_sphere_with_anearing.svg}
@@ -159,6 +165,8 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 
 \subsubsection{アニーリング速度依存性}
 
+
+
 \begin{figure}
 \centering
 \includesvg{image/result_sphere_anearing_speed.svg}
@@ -173,6 +181,21 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
     (d) $t_{max}=80000$．
 }
 \label{fig:result_sphere_anearing_speed}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includesvg{image/result_sphere_anearing_speed_hist.svg}
+\caption{
+    図\ref{fig:result_sphere_anearing_speed}で示した構造に対する孔の大きさの頻度分布．
+    %TODO 詳細を書く．
+    (a) $t_{max}=20000$．
+    (b) $t_{max}=40000$．
+    (c) $t_{max}=60000$．
+    (d) $t_{max}=80000$．
+}
+\label{fig:result_sphere_anearing_speed_hist}
 \end{figure}
 
 

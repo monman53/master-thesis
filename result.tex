@@ -1,17 +1,19 @@
 \chapter{結果}
 
 第\ref{sec:model}章で説明した数値シミュレーションの実験結果とその解析結果について述べる．
-まず，既存のArakiらのモデルの再現実験を行い，
-温度変化の拡張，
-球面上への拡張の順にそのモデルの数値計算結果と解析結果を述べ，
-先行研究のDNAゲルカプセルとの比較し考察を行う．
+平面上のモデルと球面上のモデルについて，
+それぞれ温度変化の有無による計算結果を述べ，
+最後に先行研究のDNAゲルカプセルとの比較し考察を行う．
+%TODO 球面の影響についても言及?
 
-\section{平面上の温度変化なしの結果}
+\section{平面上モデルの結果}
+
+\subsection{温度変化なし}
 
 まず，今回施した拡張を一切適用しないオリジナルのモデルを用いたシミュレーション結果について述べる．
 計算点は縦40，横40の計1600点からなり，長さ$1$のバネで接続された状態から計算を開始する．
 各定数については
-$\zeta=10000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.5$の条件で実験を行った．
+$\zeta=12000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.45, E_0=6.5$の条件で実験を行った．
 
 前半では全体に孔構造が形成されており，
 この孔の部分には拡散の速い物質が集合しているとみなすことができる(図\ref{fig:result_2d_without_anearing}b)．
@@ -26,7 +28,7 @@ $\zeta=10000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.5$の条件
 \centering
 \includesvg{image/result_2d_without_anearing.svg}
 \caption{
-    拡張を施す前のモデルの計算結果の時間経過．
+    拡張を施す前の平面モデルの計算結果の時間変化．
     (a) $t=0$．
     (b) $t=10000$．
     (c) $t=20000$．
@@ -39,12 +41,12 @@ $\zeta=10000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.5$の条件
 \label{fig:result_2d_without_anearing}
 \end{figure}
 
-\section{平面上の温度変化ありの結果}
+\subsection{温度変化あり}
 
 次に，温度変化の拡張を行った結果について述べる．
 温度$T$以外の条件を先の温度変化なしの実験と同じにし，
 温度$T$を式\ref{eq:thermal}のように変更し対照実験を行う．
-ただし$T_{max}=0.5$，$t_{max}=80000$とし，
+ただし$T_{max}=0.45$，$t_{max}=80000$とし，
 この値は先の実験における$T$やシミュレーション時間と同じであるので，
 両者の異なる点は$T$の温度が線形に小さくなっていく点のみである．
 
@@ -60,7 +62,7 @@ $\zeta=10000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.5$の条件
 \centering
 \includesvg{image/result_2d_with_anearing.svg}
 \caption{
-    温度変化の拡張を施したモデルの計算結果の時間経過．
+    温度変化の拡張を施した平面モデルの計算結果の時間変化．
     (a) $t=0$．
     (b) $t=10000$．
     (c) $t=20000$．
@@ -73,7 +75,7 @@ $\zeta=10000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.5$の条件
 \label{fig:result_2d_with_anearing}
 \end{figure}
 
-\subsection{アニーリング速度依存性}
+\subsubsection{アニーリング速度依存性}
 アニーリング速度を変えた場合のパターンの違いについて述べる．
 アニーリング速度を変えて実験するためには，
 式\ref{eq:thermal}より$t_{max}$を変更すれば良い．
@@ -87,14 +89,14 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 これはバネの切れやすい温度の高い状態にある時間が少ないためであると考えられる．
 
 孔の大きさの分布などの定量的な解析については，
-球面上に拡張した場合の結果において議論する．
+球面上に拡張したモデルにおける実験結果において議論する．
 %TODO 解析結果ももし可能であれば載せたい
 
 \begin{figure}
 \centering
 \includesvg{image/result_2d_anearing_speed.svg}
 \caption{
-    構造のアニーリング速度依存性．
+    名麺モデルにおける構造のアニーリング速度依存性．
     温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
     式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
     画像は，$t=t_{max}$のときの構造のCGである．
@@ -109,21 +111,72 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 
 
 
-\section{球面上の温度変化ありの結果}
+\section{球面上モデルの結果}
 
 次に，モデルを球面上に拡張した場合の結果を述べる．
 
-%TODO 粘性固定
+\subsection{温度変化なし}
 
-\subsection{解析方法の確認}
+まず，粒子数以外を平面モデルと同じ条件にし，
+温度変化を行わない条件で実験を行った．
 
-得られた構造の解析の前に，
-第\ref{sec:model}章で説明した孔の検出アルゴリズムが正しく動作しているか確認する．
+\begin{figure}
+\centering
+\includesvg{image/result_sphere_without_anearing.svg}
+\caption{
+    温度変化の無い球面モデルの計算結果の時間変化．
+    (a) $t=0$．
+    (b) $t=10000$．
+    (c) $t=20000$．
+    (d) $t=30000$．
+    (e) $t=40000$．
+    (f) $t=50000$．
+    (g) $t=60000$．
+    (h) $t=70000$．
+}
+\label{fig:result_sphere_without_anearing}
+\end{figure}
 
-\subsection{アニーリング速度依存性}
+
+\subsection{温度変化あり}
+
+\begin{figure}
+\centering
+\includesvg{image/result_sphere_with_anearing.svg}
+\caption{
+    温度変化の拡張を施した球面モデルの計算結果の時間変化．
+    (a) $t=0$．
+    (b) $t=10000$．
+    (c) $t=20000$．
+    (d) $t=30000$．
+    (e) $t=40000$．
+    (f) $t=50000$．
+    (g) $t=60000$．
+    (h) $t=70000$．
+}
+\label{fig:result_sphere_with_anearing}
+\end{figure}
+
+\subsubsection{アニーリング速度依存性}
+
+\begin{figure}
+\centering
+\includesvg{image/result_sphere_anearing_speed.svg}
+\caption{
+    球面モデルにおける構造のアニーリング速度依存性．
+    温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
+    式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
+    画像は，$t=t_{max}$のときの構造のCGである．
+    (a) $t_{max}=20000$．
+    (b) $t_{max}=40000$．
+    (c) $t_{max}=60000$．
+    (d) $t_{max}=80000$．
+}
+\label{fig:result_sphere_anearing_speed}
+\end{figure}
 
 
-\subsection{カプセルの半径依存性}
+\subsubsection{カプセルの半径依存性}
 先行研究では，カプセルの大きさに依存して孔の形成されやすさが変わることも報告されている~\cite{morita2017formation}．
 そこで，その理由について本モデルを使い次の仮説を検証した．
 

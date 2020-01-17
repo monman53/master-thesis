@@ -165,8 +165,6 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 
 \subsubsection{アニーリング速度依存性}
 
-
-
 \begin{figure}
 \centering
 \includesvg{image/result_sphere_anearing_speed.svg}
@@ -198,6 +196,33 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 \label{fig:result_sphere_anearing_speed_hist}
 \end{figure}
 
+\subsubsection{粘性抵抗依存性}
+
+\begin{figure}
+\centering
+\includesvg{image/result_sphere_friction_constant.svg}
+\caption{
+    球面モデルにおける構造の粘性抵抗依存性．
+    (a) $zeta=8000$．
+    (b) $zeta=12000$．
+    (c) $zeta=16000$．
+    (d) $zeta=20000$．
+}
+\label{fig:result_sphere_friction_constant}
+\end{figure}
+
+\begin{figure}
+\centering
+\includesvg{image/result_sphere_friction_constant_hist.svg}
+\caption{
+    図\ref{fig:result_sphere_friction_constant}で示した構造に対する孔の大きさの頻度分布．
+    (a) $zeta=8000$．
+    (b) $zeta=12000$．
+    (c) $zeta=16000$．
+    (d) $zeta=20000$．
+}
+\label{fig:result_sphere_friction_constant_hist}
+\end{figure}
 
 \subsubsection{カプセルの半径依存性}
 先行研究では，カプセルの大きさに依存して孔の形成されやすさが変わることも報告されている~\cite{morita2017formation}．

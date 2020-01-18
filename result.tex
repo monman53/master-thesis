@@ -167,7 +167,7 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 \subsubsection{アニーリング速度依存性}
 
 粘性抵抗$\zeta$の値を固定し，
-$t_{max}$の値を変えて実験を行った\ref{fig:result_sphere_anearing_speed}．
+$t_{max}$の値を変えて実験を行った(図\ref{fig:result_sphere_anearing_speed})．
 
 \begin{figure}
 \centering
@@ -193,7 +193,7 @@ $t=t_{max}$の構造の解析を行ったところ，
 \centering
 \includesvg{image/result_sphere_anearing_speed_hist.svg}
 \caption{
-    孔の大きさの頻度分布のあニーリング速度$\zeta$依存性．
+    孔の大きさの頻度分布のアニーリング速度$\zeta$依存性．
     図\ref{fig:result_sphere_anearing_speed}で示した構造に対する解析結果．
     アニーリング速度が遅いほど($t_{max}$が大きいほど)
     分布は右側にシフトしており孔が成長しやすいと言える．
@@ -270,6 +270,7 @@ $t=t_{max}$の構造の解析を行ったところ，
 一度ゲル化してしまうと相分離がそれ以上進まないと考えられる．
 したがってアニーリング速度が遅いほど，
 つまりゲル化するまでの比較的高温の時間が長いほど孔のパターンは形成されやすいと考えられる．
+%TODO 図
 
 \subsection{カプセルの半径依存性と粘性依存性の関係}
 
@@ -284,9 +285,20 @@ $t=t_{max}$の構造の解析を行ったところ，
 したがって，液滴の大きさが異なればDNAのゲル層の厚さも異なると考えられる．
 このとき，より厚く集積するほど内側のDNAは脂質膜から遠くなるため，
 脂質との電気的な相互作用が弱くなり流動性が高くなる．
-つまり，直径が大きい液滴ほど内面のDNAの流動性は高くなると仮説をたてた．
+つまり，直径が大きい液滴ほど内面のDNAの流動性は高くなると仮説をたてた(図\ref{fig:size_and_friction})．
 ここで言う流動性はモデルにおける粘性抵抗(式\ref{eq:main})と対応すると考えることで，
 数値シミュレーション結果における粘性抵抗依存性
 (図\ref{fig:result_sphere_friction_constant_hist})
 と比較することでこの仮説を肯定的に検証することができる．
 %TODO 図
+
+\begin{figure}
+\centering
+\includesvg{image/size_and_friction.svg}
+\caption{
+    DNAゲルカプセル作成時におけるDNA溶液の液滴の大きさと粘性抵抗の関係についての模式図．
+    (a) 液滴の直径が大きい場合，内面に集積したDNAの流体の粘性抵抗は小さい．
+    (b) 液滴の直径が小さい場合はその逆である．
+}
+\label{fig:size_and_friction}
+\end{figure}

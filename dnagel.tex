@@ -13,13 +13,6 @@ DNAゲルカプセル作製の実験はMoritaらの先行研究で行われて�
 本研究で扱うDNAゲルは，
 Y-DNAと呼ばれる人工的に合成したDNA分子を用いて作製される~\cite{morita2017formation}．
 Y-DNA分子は3本の1本鎖DNAがY字形状にハイブリダイゼーションした構造をとる(図\ref{fig:ydna}b)．
-3種類ある1本鎖DNA分子のそれぞれの塩基配列は，
-Y字形状をとるように事前にコンピュータソフトウェア~\cite{zadeh2011nupack}の用いて設計される．
-3本の分岐の先端は完全に相補鎖を形成せずに1本鎖の状態で突出している．
-我々はこの部分を``sticky-ends''と呼んでいる．
-この1本鎖の部分の塩基配列は回文配列になっており，
-他の分子の腕の先とハイブリダイゼーションしうる状態になっている．
-Y-DNA分子同士がsticky-endを介して相互作用しネットワークを形成することで，ゲルが形成される(図\ref{fig:ydna}c)．
 \begin{figure}
     \centering
     \includesvg{image/ydna.svg}
@@ -31,6 +24,13 @@ Y-DNA分子同士がsticky-endを介して相互作用しネットワークを�
     }
     \label{fig:ydna}
 \end{figure}
+3種類ある1本鎖DNA分子のそれぞれの塩基配列は，
+Y字形状をとるように事前にコンピュータソフトウェア~\cite{zadeh2011nupack}の用いて設計される．
+3本の分岐の先端は完全に相補鎖を形成せずに1本鎖の状態で突出している．
+我々はこの部分を``sticky-ends''と呼んでいる．
+この1本鎖の部分の塩基配列は回文配列になっており，
+他の分子の腕の先とハイブリダイゼーションしうる状態になっている．
+Y-DNA分子同士がsticky-endを介して相互作用しネットワークを形成することで，ゲルが形成される(図\ref{fig:ydna}c)．
 
 \subsection{DNAゲルカプセル}
 DNAゲルをカプセル状に作製したものがDNAゲルカプセルである．
@@ -114,7 +114,8 @@ DNA蛍光染色剤 SYBR Gold 1× (ライフテクノロジーズジャパン)，
 \begin{figure}
     \centering
     \includesvg{image/equipments.svg}
-    \caption{Y-DNAの模式図．
+    \caption{
+        観察系．
         (a) サーマルサイクラー．
             観察前に溶液をこの装置でアニールし
             Y-DNA分子自体を形成させる．
@@ -142,10 +143,6 @@ DNA蛍光染色剤 SYBR Gold 1× (ライフテクノロジーズジャパン)，
 DNAはマイクロスケールのゲル粒子を形成しており，
 互いに接着し合い大きなクラスターを形成していた
 (図\ref{fig:result_dnagel_formation}a)．%TODO CCAの話を書く?
-加熱を始めると次第にクラスターは収縮し，
-一様な大きなバルク状のDNA集合体が形成された(図\ref{fig:result_dnagel_formation}b-c)．
-インキュベート後に冷却を始めると一様だったDNA集合体に変化が見られ，
-突然小さな孔が無数に形成さた(図\ref{fig:result_dnagel_formation}d)．
 \begin{figure}
     \centering
     \includesvg{image/result_dnagel_formation.svg}
@@ -157,6 +154,10 @@ DNAはマイクロスケールのゲル粒子を形成しており，
     }
     \label{fig:result_dnagel_formation}
 \end{figure}
+加熱を始めると次第にクラスターは収縮し，
+一様な大きなバルク状のDNA集合体が形成された(図\ref{fig:result_dnagel_formation}b-c)．
+インキュベート後に冷却を始めると一様だったDNA集合体に変化が見られ，
+突然小さな孔が無数に形成さた(図\ref{fig:result_dnagel_formation}d)．
 
 冷却が終わるとDNA集合体に変化は見られなくなり，
 ゲル状態で安定したと考えられる．
@@ -223,7 +224,6 @@ DNAゲルカプセルにみられるパターン形成はY-DNA分子の固有の
 ``粘弾性''の定義にあるように弾性力がはたらくことでその拡散速度が遅くなる．
 この場合，少数成分が液滴を形成する前に少数成分同士でネットワークを形成し多数成分が液滴を形成するという，
 通常とは逆の状態が過渡期に観測されることが知られており(図~\ref{fig:veps})，
-このような現象は粘弾性相分離現象と呼ばれている~\cite{tanaka2009formation}，
 \begin{figure}
     \centering
     \includesvg{image/veps.svg}
@@ -241,6 +241,7 @@ DNAゲルカプセルにみられるパターン形成はY-DNA分子の固有の
     }
     \label{fig:veps}
 \end{figure}
+このような現象は粘弾性相分離現象と呼ばれている~\cite{tanaka2009formation}，
 
 本研究で扱うDNAゲルカプセルを構成するY-DNA分子は，
 1分子あたりの分子量が35000以上であり，さらにそれらがsticky-endsで接続されることを考えると，

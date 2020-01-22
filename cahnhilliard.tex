@@ -19,9 +19,6 @@ DNAゲルは第\ref{sec:dnagel}章でみられた形状よりも球に近い形�
 
 上記の操作の結果，
 バルクのDNA集合体は\SI{50}{\celsius}付近では一様に拡散し(図\ref{fig:result_special}b左)，
-冷却すると拡散したDNA分子が再集合した(図\ref{fig:result_special}b中)．
-この際に中心に引き戻されるDNAと外縁部で孤立するDNA分子の2つに分けられる．
-後者は外縁部で小さなクラスターを形成して冷却と共にゲル化した(図\ref{fig:result_special}b右)．
 \begin{figure}
     \centering
     \includesvg{image/result_special.svg}
@@ -36,6 +33,9 @@ DNAゲルは第\ref{sec:dnagel}章でみられた形状よりも球に近い形�
     }
     \label{fig:result_special}
 \end{figure}
+冷却すると拡散したDNA分子が再集合した(図\ref{fig:result_special}b中)．
+この際に中心に引き戻されるDNAと外縁部で孤立するDNA分子の2つに分けられる．
+後者は外縁部で小さなクラスターを形成して冷却と共にゲル化した(図\ref{fig:result_special}b右)．
 
 
 \section{数理モデル}
@@ -51,7 +51,6 @@ DNAゲルは第\ref{sec:dnagel}章でみられた形状よりも球に近い形�
 そこで，2次元のDNAと水の2成分系を考え，
 はじめにDNA分子が拡散を行い，
 冷却開始時点を境に相分離が始まるという状況を考えた(図\ref{fig:model_cahn_hilliard})．
-前半は次の拡散方程式を使用し，
 \begin{figure}
     \centering
     \includesvg{image/model_cahn_hilliard.svg}
@@ -65,6 +64,7 @@ DNAゲルは第\ref{sec:dnagel}章でみられた形状よりも球に近い形�
     }
     \label{fig:model_cahn_hilliard}
 \end{figure}
+前半は次の拡散方程式を使用し，
 \begin{equation}
     \frac{\partial c}{\partial t}
     =
@@ -89,7 +89,6 @@ DNAゲルは第\ref{sec:dnagel}章でみられた形状よりも球に近い形�
 $t=t_{max}$にて
 DNAゲルの外縁部に形成される無数のDNAゲル粒子の形成を再現することができた
 (図\ref{fig:result_cahn_hilliard})．
-内部については，実際の構造とは少し異なるパターンが観察された．
 \begin{figure}
     \centering
     \includesvg{image/result_cahn_hilliard.svg}
@@ -101,6 +100,7 @@ DNAゲルの外縁部に形成される無数のDNAゲル粒子の形成を再�
     }
     \label{fig:result_cahn_hilliard}
 \end{figure}
+内部については，実際の構造とは少し異なるパターンが観察された．
 
 
 \section{考察}

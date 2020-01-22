@@ -24,7 +24,6 @@ $\zeta=12000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.45, E_0=6.5
 ネットワーク構造を形成していた粒子は次第にまとまりはじめ(図\ref{fig:result_2d_without_anearing}e-g)，
 最終的には前半で見られた孔のパターンとは成分が完全に逆転し，
 粒子が集合しクラスターを構成する状態で安定となる(図\ref{fig:result_2d_without_anearing}h)．
-これは粘弾性相分離現象の一連の過程と類似しており，元のモデルが表現していた現象である．
 \begin{figure}
     \centering
     \includesvg[scale=0.9]{image/result_2d_without_anearing.svg}
@@ -41,6 +40,7 @@ $\zeta=12000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.45, E_0=6.5
     }
     \label{fig:result_2d_without_anearing}
 \end{figure}
+これは粘弾性相分離現象の一連の過程と類似しており，元のモデルが表現していた現象である．
 
 
 \subsection{温度変化あり}
@@ -52,8 +52,6 @@ $\zeta=12000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.45, E_0=6.5
 両者の異なる点は$T$の温度が線形に小さくなっていく点のみである．
 
 前半は温度変化のない場合と同じように全体に孔の構造が形成される(図\ref{fig:result_2d_with_anearing}a-d)．
-後半はその孔が成長するものの，ネットワーク構造を保ったまま安定状態になる(図\ref{fig:result_2d_with_anearing}e-h)．
-これは温度が下がることにより揺動力やバネの切断確率が小さくなることに起因する．
 \begin{figure}
     \centering
     \includesvg[scale=0.9]{image/result_2d_with_anearing.svg}
@@ -70,6 +68,8 @@ $\zeta=12000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.45, E_0=6.5
     }
     \label{fig:result_2d_with_anearing}
 \end{figure}
+後半はその孔が成長するものの，ネットワーク構造を保ったまま安定状態になる(図\ref{fig:result_2d_with_anearing}e-h)．
+これは温度が下がることにより揺動力やバネの切断確率が小さくなることに起因する．
 
 実際のDNAカプセルゲルも，
 通常の粘弾性相分離のように構成成分がクラスターを形成するまで相分離が進行せず，
@@ -87,7 +87,6 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 実験の結果，アニーリング速度により構造に大きな違いが現れることが確認された．
 アニーリング速度が大きいほど孔は形成されにくい傾向にあり，
 形成されたとしても非常に小さいことが確認できる(図\ref{fig:result_2d_anearing_speed}(a))．
-これはバネの切れやすい温度の高い状態にある時間が少ないためであると考えられる．
 \begin{figure}
     \centering
     \includesvg{image/result_2d_anearing_speed.svg}
@@ -103,6 +102,7 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
     }
     \label{fig:result_2d_anearing_speed}
 \end{figure}
+これはバネの切れやすい温度の高い状態にある時間が少ないためであると考えられる．
 
 孔の大きさの分布などの定量的な解析については，
 球面モデルの実験結果において議論する．
@@ -119,7 +119,6 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 平面モデルの結果と同様に，
 孔の成長とクラスターの形成が球面上で確認され
 (図\ref{fig:result_sphere_without_anearing})，
-球面上へのモデルの拡張は正しく行われたと考えられる．
 \begin{figure}
     \centering
     \includesvg[scale=0.9]{image/result_sphere_without_anearing.svg}
@@ -136,12 +135,11 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
     }
     \label{fig:result_sphere_without_anearing}
 \end{figure}
+球面上へのモデルの拡張は正しく行われたと考えられる．
 
 
 \subsection{温度変化あり}
 次に，温度変化ありの場合の結果を図\ref{fig:result_sphere_with_anearing}に示す．
-平面モデルと同じように，
-初めに形成された小さな孔が次第に成長する様子が確認された．
 \begin{figure}
     \centering
     \includesvg[scale=0.9]{image/result_sphere_with_anearing.svg}
@@ -158,6 +156,8 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
     }
     \label{fig:result_sphere_with_anearing}
 \end{figure}
+平面モデルと同じように，
+初めに形成された小さな孔が次第に成長する様子が確認された．
 
 実際のDNAゲルカプセルの実験ではアニーリング操作が行われており，
 温度変化ありのこの計算機実験が本研究の中心である．
@@ -282,7 +282,6 @@ $t=t_{max}$の構造の解析を行ったところ，
 \subsection{両者のまとめ}
 以上でアニーリング速度と粘性抵抗の両者の依存性について述べた．
 ここで，本研究で用いた全条件の結果を図\ref{fig:result_sphere_all}に示す．
-また，その孔の分布を図\ref{fig:result_sphere_all_hist}に示す．
 \begin{figure}
     \centering
     \includesvg[scale=0.9]{image/result_sphere_all.svg}
@@ -292,6 +291,7 @@ $t=t_{max}$の構造の解析を行ったところ，
     }
 \label{fig:result_sphere_all}
 \end{figure}
+また，その孔の分布を図\ref{fig:result_sphere_all_hist}に示す．
 \begin{figure}
     \centering
     \includesvg[scale=0.9]{image/result_sphere_all_hist.svg}

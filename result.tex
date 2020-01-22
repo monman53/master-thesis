@@ -7,10 +7,11 @@
 最後に先行研究のDNAゲルカプセルとの比較し考察を行う．
 %TODO 球面の影響についても言及?
 
+
 \section{平面モデルの結果}
 
-\subsection{温度変化なし}
 
+\subsection{温度変化なし}
 まず，今回施した拡張を一切適用しないオリジナルのモデルを用いたシミュレーション結果について述べる．
 計算点は縦40，横40の計1600点からなり，長さ$1$のバネで接続された状態から計算を開始する．
 各定数については
@@ -24,26 +25,25 @@ $\zeta=12000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.45, E_0=6.5
 最終的には前半で見られた孔のパターンとは成分が完全に逆転し，
 粒子が集合しクラスターを構成する状態で安定となる(図\ref{fig:result_2d_without_anearing}h)．
 これは粘弾性相分離現象の一連の過程と類似しており，元のモデルが表現していた現象である．
-
 \begin{figure}
-\centering
-\includesvg{image/result_2d_without_anearing.svg}
-\caption{
-    拡張を施す前の平面モデルの計算結果の時間変化．
-    (a) $t=0$．
-    (b) $t=10000$．
-    (c) $t=20000$．
-    (d) $t=30000$．
-    (e) $t=40000$．
-    (f) $t=50000$．
-    (g) $t=60000$．
-    (h) $t=70000$．
-}
-\label{fig:result_2d_without_anearing}
+    \centering
+    \includesvg[scale=0.9]{image/result_2d_without_anearing.svg}
+    \caption{
+        拡張を施す前の平面モデルの計算結果の時間変化．
+        (a) $t=0$．
+        (b) $t=10000$．
+        (c) $t=20000$．
+        (d) $t=30000$．
+        (e) $t=40000$．
+        (f) $t=50000$．
+        (g) $t=60000$．
+        (h) $t=70000$．
+    }
+    \label{fig:result_2d_without_anearing}
 \end{figure}
 
-\subsection{温度変化あり}
 
+\subsection{温度変化あり}
 次に，温度変化の拡張を行った結果について述べる．
 温度$T$以外の条件を先の温度変化なしの実験と同じにし，
 温度$T$を式\ref{eq:thermal}のように変更し対照実験を行う．
@@ -54,27 +54,27 @@ $\zeta=12000$，$\epsilon=0.4$，$\sigma=0.25$，$\Delta t=1$，$T=0.45, E_0=6.5
 前半は温度変化のない場合と同じように全体に孔の構造が形成される(図\ref{fig:result_2d_with_anearing}a-d)．
 後半はその孔が成長するものの，ネットワーク構造を保ったまま安定状態になる(図\ref{fig:result_2d_with_anearing}e-h)．
 これは温度が下がることにより揺動力やバネの切断確率が小さくなることに起因する．
+\begin{figure}
+    \centering
+    \includesvg[scale=0.9]{image/result_2d_with_anearing.svg}
+    \caption{
+        温度変化の拡張を施した平面モデルの計算結果の時間変化．
+        (a) $t=0$．
+        (b) $t=10000$．
+        (c) $t=20000$．
+        (d) $t=30000$．
+        (e) $t=40000$．
+        (f) $t=50000$．
+        (g) $t=60000$．
+        (h) $t=70000$．
+    }
+    \label{fig:result_2d_with_anearing}
+\end{figure}
 
 実際のDNAカプセルゲルも，
 通常の粘弾性相分離のように構成成分がクラスターを形成するまで相分離が進行せず，
 この実験で得られた結果のように途中ネットワーク構造を形成する段階でゲル化し安定化していると考えられる．
 
-\begin{figure}
-\centering
-\includesvg{image/result_2d_with_anearing.svg}
-\caption{
-    温度変化の拡張を施した平面モデルの計算結果の時間変化．
-    (a) $t=0$．
-    (b) $t=10000$．
-    (c) $t=20000$．
-    (d) $t=30000$．
-    (e) $t=40000$．
-    (f) $t=50000$．
-    (g) $t=60000$．
-    (h) $t=70000$．
-}
-\label{fig:result_2d_with_anearing}
-\end{figure}
 
 \subsubsection{アニーリング速度依存性}
 アニーリング速度を変えた場合のパターンの違いについて述べる．
@@ -88,65 +88,76 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 アニーリング速度が大きいほど孔は形成されにくい傾向にあり，
 形成されたとしても非常に小さいことが確認できる(図\ref{fig:result_2d_anearing_speed}(a))．
 これはバネの切れやすい温度の高い状態にある時間が少ないためであると考えられる．
+\begin{figure}
+    \centering
+    \includesvg{image/result_2d_anearing_speed.svg}
+    \caption{
+        平面モデルにおける構造のアニーリング速度依存性．
+        温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
+        式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
+        画像は$t=t_{max}$のときの構造のCGである．
+        (a) $t_{max}=20000$．
+        (b) $t_{max}=40000$．
+        (c) $t_{max}=60000$．
+        (d) $t_{max}=80000$．
+    }
+    \label{fig:result_2d_anearing_speed}
+\end{figure}
 
 孔の大きさの分布などの定量的な解析については，
 球面モデルの実験結果において議論する．
 
-\begin{figure}
-\centering
-\includesvg{image/result_2d_anearing_speed.svg}
-\caption{
-    平面モデルにおける構造のアニーリング速度依存性．
-    温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
-    式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
-    画像は$t=t_{max}$のときの構造のCGである．
-    (a) $t_{max}=20000$．
-    (b) $t_{max}=40000$．
-    (c) $t_{max}=60000$．
-    (d) $t_{max}=80000$．
-}
-\label{fig:result_2d_anearing_speed}
-\end{figure}
-
-
 
 \section{球面モデルの結果}
-
 次に，モデルを球面上に拡張した場合の結果を述べる．
 正二十面体のそれぞれの面を100等分して構築した，1002点からなるGeodesic Gridを初期状態とする．
 各定数については平面モデルでの実験と同じである．
 
-\subsection{温度変化なし}
 
+\subsection{温度変化なし}
 まず，温度変化を行わない条件で実験を行った．
 平面モデルの結果と同様に，
 孔の成長とクラスターの形成が球面上で確認され
 (図\ref{fig:result_sphere_without_anearing})，
 球面上へのモデルの拡張は正しく行われたと考えられる．
-
 \begin{figure}
-\centering
-\includesvg{image/result_sphere_without_anearing.svg}
-\caption{
-    温度変化の無い球面モデルの計算結果の時間変化．
-    (a) $t=0$．
-    (b) $t=10000$．
-    (c) $t=20000$．
-    (d) $t=30000$．
-    (e) $t=40000$．
-    (f) $t=50000$．
-    (g) $t=60000$．
-    (h) $t=70000$．
-}
-\label{fig:result_sphere_without_anearing}
+    \centering
+    \includesvg[scale=0.9]{image/result_sphere_without_anearing.svg}
+    \caption{
+        温度変化の無い球面モデルの計算結果の時間変化．
+        (a) $t=0$．
+        (b) $t=10000$．
+        (c) $t=20000$．
+        (d) $t=30000$．
+        (e) $t=40000$．
+        (f) $t=50000$．
+        (g) $t=60000$．
+        (h) $t=70000$．
+    }
+    \label{fig:result_sphere_without_anearing}
 \end{figure}
 
 
 \subsection{温度変化あり}
-
 次に，温度変化ありの場合の結果を図\ref{fig:result_sphere_with_anearing}に示す．
 平面モデルと同じように，
 初めに形成された小さな孔が次第に成長する様子が確認された．
+\begin{figure}
+    \centering
+    \includesvg[scale=0.9]{image/result_sphere_with_anearing.svg}
+    \caption{
+        温度変化の拡張を施した球面モデルの計算結果の時間変化．
+        (a) $t=0$．
+        (b) $t=10000$．
+        (c) $t=20000$．
+        (d) $t=30000$．
+        (e) $t=40000$．
+        (f) $t=50000$．
+        (g) $t=60000$．
+        (h) $t=70000$．
+    }
+    \label{fig:result_sphere_with_anearing}
+\end{figure}
 
 実際のDNAゲルカプセルの実験ではアニーリング操作が行われており，
 温度変化ありのこの計算機実験が本研究の中心である．
@@ -154,132 +165,108 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 最終状態のパターンに関して詳細な解析を行い，
 先行研究の結果との比較へ繋げる．
 
-\begin{figure}
-\centering
-\includesvg{image/result_sphere_with_anearing.svg}
-\caption{
-    温度変化の拡張を施した球面モデルの計算結果の時間変化．
-    (a) $t=0$．
-    (b) $t=10000$．
-    (c) $t=20000$．
-    (d) $t=30000$．
-    (e) $t=40000$．
-    (f) $t=50000$．
-    (g) $t=60000$．
-    (h) $t=70000$．
-}
-\label{fig:result_sphere_with_anearing}
-\end{figure}
 
 \subsubsection{アニーリング速度依存性}
-
 粘性抵抗$\zeta$の値を固定し，
 $t_{max}$の値を変えて実験を行った(図\ref{fig:result_sphere_anearing_speed})．
-
 \begin{figure}
-\centering
-\includesvg{image/result_sphere_anearing_speed.svg}
-\caption{
-    球面モデルにおける構造のアニーリング速度依存性．
-    温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
-    式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
-    画像は，$t=t_{max}$のときの構造のCGである．
-    (a) $t_{max}=20000$．
-    (b) $t_{max}=40000$．
-    (c) $t_{max}=60000$．
-    (d) $t_{max}=80000$．
-}
-\label{fig:result_sphere_anearing_speed}
+    \centering
+    \includesvg{image/result_sphere_anearing_speed.svg}
+    \caption{
+        球面モデルにおける構造のアニーリング速度依存性．
+        温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
+        式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
+        画像は，$t=t_{max}$のときの構造のCGである．
+        (a) $t_{max}=20000$．
+        (b) $t_{max}=40000$．
+        (c) $t_{max}=60000$．
+        (d) $t_{max}=80000$．
+    }
+    \label{fig:result_sphere_anearing_speed}
 \end{figure}
-
 $t=t_{max}$の構造の解析を行ったところ，
 アニーリング速度が大きいほど($t_{max}$が小さいほど)孔の形成がされにくいことがわかった
-\ref{fig:result_sphere_anearing_speed_hist}．
-
+(図\ref{fig:result_sphere_anearing_speed_hist})．
 \begin{figure}
-\centering
-\includesvg{image/result_sphere_anearing_speed_hist.svg}
-\caption{
-    孔の大きさの頻度分布のアニーリング速度$\zeta$依存性．
-    図\ref{fig:result_sphere_anearing_speed}で示した構造に対する解析結果．
-    横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
-    アニーリング速度が遅いほど($t_{max}$が大きいほど)
-    分布は右側にシフトしており孔が成長しやすいと言える．
-    (a) $t_{max}=20000$．
-    (b) $t_{max}=40000$．
-    (c) $t_{max}=60000$．
-    (d) $t_{max}=80000$．
-}
-\label{fig:result_sphere_anearing_speed_hist}
+    \centering
+    \includesvg{image/result_sphere_anearing_speed_hist.svg}
+    \caption{
+        孔の大きさの頻度分布のアニーリング速度$\zeta$依存性．
+        図\ref{fig:result_sphere_anearing_speed}で示した構造に対する解析結果．
+        横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
+        アニーリング速度が遅いほど($t_{max}$が大きいほど)
+        分布は右側にシフトしており孔が成長しやすいと言える．
+        (a) $t_{max}=20000$．
+        (b) $t_{max}=40000$．
+        (c) $t_{max}=60000$．
+        (d) $t_{max}=80000$．
+    }
+    \label{fig:result_sphere_anearing_speed_hist}
 \end{figure}
+
 
 \subsubsection{粘性抵抗依存性}
-
 次に$t_{max}$の値を固定し，
 粘性抵抗$\zeta$の値を変えて実験を行った
-\ref{fig:result_sphere_friction_constant}
-
+(図\ref{fig:result_sphere_friction_constant})．
 \begin{figure}
-\centering
-\includesvg{image/result_sphere_friction_constant.svg}
-\caption{
-    球面モデルにおける構造の粘性抵抗依存性．
-    (a) $\zeta=8000$．
-    (b) $\zeta=12000$．
-    (c) $\zeta=16000$．
-    (d) $\zeta=20000$．
-}
-\label{fig:result_sphere_friction_constant}
+    \centering
+    \includesvg{image/result_sphere_friction_constant.svg}
+    \caption{
+        球面モデルにおける構造の粘性抵抗依存性．
+        (a) $\zeta=8000$．
+        (b) $\zeta=12000$．
+        (c) $\zeta=16000$．
+        (d) $\zeta=20000$．
+    }
+    \label{fig:result_sphere_friction_constant}
 \end{figure}
-
 $t=t_{max}$の構造の解析を行ったところ，
 粘性抵抗$\zeta$が大きいほど孔の形成がされにくいことがわかった
-\ref{fig:result_sphere_friction_constant}．
-
+(図\ref{fig:result_sphere_friction_constant_hist})．
 \begin{figure}
-\centering
-\includesvg{image/result_sphere_friction_constant_hist.svg}
-\caption{
-    孔の大きさの頻度分布の粘性抵抗$\zeta$依存性．
-    横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
-    図\ref{fig:result_sphere_friction_constant}で示した構造に対する解析結果．
-    $\zeta$が小さいほど分布は右側にシフトしており孔が成長しやすいと言える．
-    (a) $\zeta=8000$．
-    (b) $\zeta=12000$．
-    (c) $\zeta=16000$．
-    (d) $\zeta=20000$．
-}
-\label{fig:result_sphere_friction_constant_hist}
+    \centering
+    \includesvg{image/result_sphere_friction_constant_hist.svg}
+    \caption{
+        孔の大きさの頻度分布の粘性抵抗$\zeta$依存性．
+        横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
+        図\ref{fig:result_sphere_friction_constant}で示した構造に対する解析結果．
+        $\zeta$が小さいほど分布は右側にシフトしており孔が成長しやすいと言える．
+        (a) $\zeta=8000$．
+        (b) $\zeta=12000$．
+        (c) $\zeta=16000$．
+        (d) $\zeta=20000$．
+    }
+    \label{fig:result_sphere_friction_constant_hist}
 \end{figure}
+
 
 \subsection{両者のまとめ}
 以上でアニーリング速度と粘性抵抗の両者の依存性について述べた．
 ここで，本研究で用いた全条件の結果を図\ref{fig:result_sphere_all}に示す．
 また，その孔の分布を図\ref{fig:result_sphere_all_hist}に示す．
-
 \begin{figure}
-\centering
-\includesvg{image/result_sphere_all.svg}
-\caption{
-    本研究で用いた全てのアニーリング速度$t_{max}$と粘性抵抗$\zeta$の条件対に対する計算機実験の結果のCG．
-}
+    \centering
+    \includesvg[scale=0.9]{image/result_sphere_all.svg}
+    \caption{
+        本研究で用いた全てのアニーリング速度$t_{max}$と
+        粘性抵抗$\zeta$の条件対に対する計算機実験の結果のCG．
+    }
 \label{fig:result_sphere_all}
 \end{figure}
-
 \begin{figure}
-\centering
-\includesvg{image/result_sphere_all_hist.svg}
-\caption{
-    本研究で用いた全てのアニーリング速度$t_{max}$と粘性抵抗$\zeta$の条件対に対する計算機実験の結果の解析結果．
-    各ヒストグラムの横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
-}
-\label{fig:result_sphere_all_hist}
+    \centering
+    \includesvg[scale=0.9]{image/result_sphere_all_hist.svg}
+    \caption{
+        本研究で用いた全てのアニーリング速度$t_{max}$と
+        粘性抵抗$\zeta$の条件対に対する計算機実験の結果の解析結果．
+        各ヒストグラムの横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
+    }
+    \label{fig:result_sphere_all_hist}
 \end{figure}
 
 
-% \clearpage
 \section{考察}
-
 本実験では球面上の粘弾性相分離現象による孔構造のできやすさについて，
 アニーリング速度と粘性抵抗の2つの観点から結果を得た．
 この節では，
@@ -291,8 +278,8 @@ $t=t_{max}$の構造の解析を行ったところ，
 両型の形成割合に関する統計量が実験により得られており(図\ref{fig:result_moritasan})，
 それらのデータと本計算機実験の解析データとを比較した．
 
-\subsection{アニーリング速度依存性}
 
+\subsection{アニーリング速度依存性}
 先行研究の結果によれば，
 アニーリング速度が速いほどホモ型のDNAゲルカプセルが形成されやすく(図\ref{fig:result_moritasan}a)，
 この結果は数値シミュレーションの結果と一致する．
@@ -303,9 +290,7 @@ $t=t_{max}$の構造の解析を行ったところ，
 したがってアニーリング速度が遅いほど，
 つまりゲル化するまでの比較的高温の時間が長いほど孔のパターンは形成されやすいと考えられる．
 
-
 \subsection{カプセルの半径依存性と粘性依存性の関係}
-
 先行研究のもう一方の結果であるカプセルの大きさの依存性に関しては，
 直接カプセルの大きさを変更する数値実験を行っていないため，
 本モデルを使い次の仮説を検証する形で考察を行う．
@@ -315,8 +300,7 @@ $t=t_{max}$の構造の解析を行ったところ，
 その総量は球の体積に比例するが，
 実際に集積するのは球面(面積)でありその厚さは球の半径に比例することがわかる．
 したがって，液滴の大きさが異なればDNAのゲル層の厚さも異なると考えられる．
-
-このことを半径$R$のDNA溶液の液滴を用いて検証する．
+半径$R$の理想的なDNA溶液の液滴を用いてこれを確認する．
 溶液の濃度を$\rho$とし，全てのDNA分子が界面に濃度$\rho'$で均一に集積することを考える．
 集積したDNAの層の厚さを$d$とすると，集積の前後で分子の総数は保存されるため
 \begin{equation}
@@ -339,31 +323,29 @@ $t=t_{max}$の構造の解析を行ったところ，
 数値シミュレーション結果における粘性抵抗依存性
 (図\ref{fig:result_sphere_friction_constant_hist})
 と比較することでこの仮説を肯定的に検証することができる．
+\begin{figure}
+    \centering
+    \includesvg{image/size_and_friction.svg}
+    \caption{
+        DNAゲルカプセル作成時におけるDNA溶液の液滴の大きさと粘性抵抗の関係についての模式図．
+        (a) 液滴の直径が大きい場合．
+        (b) 液滴の直径が小さい場合．
+    }
+    \label{fig:size_and_friction}
+\end{figure}
 
 先行研究によれば，
 液滴の大きさが大きいほどヘテロ型のDNAゲルカプセルが形成されやすく(図\ref{fig:result_moritasan}b), 
 この結果は先の仮説を合わせると計算機実験の結果と一致する．
-
 \begin{figure}
-\centering
-\includesvg{image/size_and_friction.svg}
-\caption{
-    DNAゲルカプセル作成時におけるDNA溶液の液滴の大きさと粘性抵抗の関係についての模式図．
-    (a) 液滴の直径が大きい場合．
-    (b) 液滴の直径が小さい場合．
-}
-\label{fig:size_and_friction}
-\end{figure}
-
-\begin{figure}
-\centering
-\includesvg{image/result_moritasan.svg}
-\caption{
-    先行研究の結果\cite{moritasan}．
-    (a) アニーリング速度依存性．
-        アニーリング速度が速いほど孔の構造は形成されにくい．
-    (b) 液滴の大きさ依存性．
-        液滴の大きさが大きいほど孔の構造は形成されやすい．
-}
-\label{fig:result_moritasan}
+    \centering
+    \includesvg{image/result_moritasan.svg}
+    \caption{
+        先行研究の結果\cite{moritasan}．
+        (a) アニーリング速度依存性．
+            アニーリング速度が速いほど孔の構造は形成されにくい．
+        (b) 液滴の大きさ依存性．
+            液滴の大きさが大きいほど孔の構造は形成されやすい．
+    }
+    \label{fig:result_moritasan}
 \end{figure}

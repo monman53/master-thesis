@@ -8,20 +8,15 @@ DNAゲルカプセルのパターン形成に対応する拡張モデルを開�
 さらにその両者についてコンピュータプログラムを実装した．
 本章では拡張モデルの説明と解析手法の詳細について述べる．
 
+
 \section{数理モデル}
+
 
 \subsection{粘弾性相分離の数理モデル}
 今回，粘弾性相分離現象の数値解析を行うにあたりArakiらの数理モデル~\cite{araki2005simple}をベースにモデルを構築した．
 このモデルでは2次元空間での粘弾性相分離現象を仮定し，
 相分離における少数成分領域の時間発展を表現するモデルである(図\ref{fig:model_2d})．
 まず，このオリジナルの数理モデルについての説明を行う．
-
-数値シミュレーションでは，
-まずはじめに粒子(疎視化点)を六方格子上に等間隔に配置し，
-隣接する6つの粒子と自然長$0$のバネで接続する(図\ref{fig:model_2d}a-b)．
-なお，空間は周期境界条件が適用され，たとえば一番上の粒子は一番下の粒子とバネで接続されている．
-この状態から，以下のOverdamped型のランジュバン方程式を数値的に解いていく．
-
 \begin{figure}
 \centering
 \includesvg{image/model_2d.svg}
@@ -38,64 +33,61 @@ DNAゲルカプセルのパターン形成に対応する拡張モデルを開�
 \label{fig:model_2d}
 \end{figure}
 
-
+数値シミュレーションでは，
+まずはじめに粒子(疎視化点)を六方格子上に等間隔に配置し，
+隣接する6つの粒子と自然長$0$のバネで接続する(図\ref{fig:model_2d}a-b)．
+なお，空間は周期境界条件が適用され，たとえば一番上の粒子は一番下の粒子とバネで接続されている．
+この状態から，以下のOverdamped型のランジュバン方程式を数値的に解いていく．
 \begin{equation}
-\label{eq:main}
-\zeta
-\frac{d}{dt}
-\vec{R}_i
-=
--\frac{\partial}{\partial\vec{R}_i}
-U_{tot}\{\vec{R}_i\}
-+\vec{\xi}_i
-.
+    \label{eq:main}
+    \zeta
+    \frac{d}{dt}
+    \vec{R}_i
+    =
+    -\frac{\partial}{\partial\vec{R}_i}
+    U_{tot}\{\vec{R}_i\}
+    +\vec{\xi}_i
+    .
 \end{equation}
-
 $\vec{R}_i$は粒子$i$の位置ベクトル，$\zeta$は粘性抵抗を意味し粘弾性の粘性の部分を表現する．
 $\vec{\xi}_i$は以下の揺動散逸定理を満たす粒子iにおける熱ゆらぎの揺動項である．
-
 \begin{eqnarray}
-\label{eq:langevin0}
-\langle\vec{\xi}_i\rangle &=& 0, \\
-\label{eq:langevin1}
-\langle\vec{\xi}_i(t):\vec{\xi}_j(t')\rangle &=& 2T\zeta\delta_{ij}\delta(t-t')\bm{I}.
+    \label{eq:langevin0}
+    \langle\vec{\xi}_i\rangle &=& 0, \\
+    \label{eq:langevin1}
+    \langle\vec{\xi}_i(t):\vec{\xi}_j(t')\rangle &=& 2T\zeta\delta_{ij}\delta(t-t')\bm{I}.
 \end{eqnarray}
-
 $U_{tot}$は粒子$i$の持つ総ポテンシャルであり，
 次の2つのポテンシャルの和で表される．
-
 \begin{eqnarray}
-U_{tot}\{\vec{R}_i\}
-&=
- U_{LJ}\{\vec{R}_i\}
-+U_{sp}\{\vec{R}_i\}.
+    U_{tot}\{\vec{R}_i\}
+    &=
+     U_{LJ}\{\vec{R}_i\}
+    +U_{sp}\{\vec{R}_i\}.
 \end{eqnarray}
-
 $U_{LJ}$，$U_{sp}$はそれぞれレナード・ジョーンズポテンシャルとバネによる調和ポテンシャルであり，
 定義は次の通りである．
-
 \begin{eqnarray}
-U_{LJ}\{\vec{R}_i\}
-&=&
-4\epsilon\sum_{j\neq i}
-\left\{
-\left(
-\frac{\sigma}{\bigl|\vec{R}_j-\vec{R}_i\bigr|}
-\right)^{12}
--
-\left(
-\frac{\sigma}{\bigl|\vec{R}_j-\vec{R}_i\bigr|}
-\right)^{6}
-\right\},
-\\
-U_{sp}\{\vec{R}_i\}
-&=&
-\frac{1}{2}
-\kappa
-\sideset{}{'}\sum_{j\neq i}
-\bigl|\vec{R}_j-\vec{R}_i\bigr|^{2}.
+    U_{LJ}\{\vec{R}_i\}
+    &=&
+    4\epsilon\sum_{j\neq i}
+    \left\{
+    \left(
+    \frac{\sigma}{\bigl|\vec{R}_j-\vec{R}_i\bigr|}
+    \right)^{12}
+    -
+    \left(
+    \frac{\sigma}{\bigl|\vec{R}_j-\vec{R}_i\bigr|}
+    \right)^{6}
+    \right\},
+    \\
+    U_{sp}\{\vec{R}_i\}
+    &=&
+    \frac{1}{2}
+    \kappa
+    \sideset{}{'}\sum_{j\neq i}
+    \bigl|\vec{R}_j-\vec{R}_i\bigr|^{2}.
 \end{eqnarray}
-
 レナードジョーンズポテンシャルは粒子間の相互排除を表現し，
 調和ポテンシャル(バネの相互作用)が粘弾性の弾性力の部分を表現する．
 $\epsilon$，$\sigma$，$\kappa$はそれぞれポテンシャルを特徴づける定数であり，
@@ -104,19 +96,17 @@ $\epsilon$，$\sigma$，$\kappa$はそれぞれポテンシャルを特徴づけ
 初期状態で接続されていたバネは，時間が経つにつれランダムに切断されていく．
 その切断確率$p$は温度$T$とバネの長$l$に依存する形で定義され，
 各計算ステップで全バネに対して切断するかしないかの処理がなされる．
-
 \begin{eqnarray}
-p(l)
-&=&
-t_0^{-1}
-\exp\left(-\frac{\Delta E(l)}{T}\right)
-,\\
-\Delta E(l)
-&=&
-E_0-\frac{\kappa l^2}{2}
-.
+    p(l)
+    &=&
+    t_0^{-1}
+    \exp\left(-\frac{\Delta E(l)}{T}\right)
+    ,\\
+    \Delta E(l)
+    &=&
+    E_0-\frac{\kappa l^2}{2}
+    .
 \end{eqnarray}
-
 具体的には，$0$から$1$の一様乱数$r$を発生させ$r<p(l)$ならバネを切断する．
 $t_0$は数値計算の1ステップの時間で，$E_0$はバネの切れやすさを意味する定数である．
 一度切断されたバネは二度と繋がることはなく，粒子間で新たにバネが接続されることもない．
@@ -124,21 +114,19 @@ $t_0$は数値計算の1ステップの時間で，$E_0$はバネの切れやす
 
 
 \subsection{計算結果のポリゴン化と配色の変更}
-
 元のモデルでは計算結果のデータは頂点と辺(バネ)のみであるが，
 相分離により形成された孔の解析(詳細は次節参照)を行うために計算結果のポリゴン化を行った．
 ポリゴンを構成する三角形は，ある計算点と隣接する計算点で作られる三角形を全て用いた．
 また，計算結果をわかりやすくするために配色を変更した(図\ref{fig:polygon})．
-
 \begin{figure}
-\centering
-\includesvg{image/polygon.svg}
-\caption{
-    計算結果のポリゴン化と配色の変更．
-    (a) 変更前の計算結果のCG．
-    (b) 同じ計算結果に対する変更の適用後のCG．
-}
-\label{fig:polygon}
+    \centering
+    \includesvg{image/polygon.svg}
+    \caption{
+        計算結果のポリゴン化と配色の変更．
+        (a) 変更前の計算結果のCG．
+        (b) 同じ計算結果に対する変更の適用後のCG．
+    }
+    \label{fig:polygon}
 \end{figure}
 
 
@@ -146,12 +134,10 @@ $t_0$は数値計算の1ステップの時間で，$E_0$はバネの切れやす
 実際のゲルカプセルの作製では温度は一定ではなく，
 線形に温度を下げていくアニーリングが施される．
 この状況を再現するために，温度項を次のように変更した．
-
 \begin{eqnarray}
-\label{eq:thermal}
-T = T_{max}(1-\frac{t}{t_{max}})
+    \label{eq:thermal}
+    T = T_{max}(1-\frac{t}{t_{max}})
 \end{eqnarray}
-
 $T_{max}$は初期状態の温度で，$t_{max}$はシミュレーションの終了時間である．
 つまり$t=0$で$T=T_{max}$，
 $t=t_{max}$で$T=0$になるような線形アニーリングを再現している．
@@ -160,6 +146,19 @@ $t=t_{max}$で$T=0$になるような線形アニーリングを再現してい�
 \subsection{球面上への拡張}
 カプセル上での粘弾性相分離現象をシミュレーションするために，
 本研究では上記のモデルの球面上への拡張を行った\ref{fig:model_sphere}．
+\begin{figure}
+    \centering
+    \includesvg{image/model_sphere.svg}
+    \caption{
+        球面モデルの模式図．
+        (a) Geodesic Grid~\cite{Geodesic}の構築方法．
+            正二十面体の面を三角形に等分割し，頂点を球面に射影することで構築する．
+            球面モデルにおいては，Geodesic Gridを初期状態としてシミュレーションを行う．
+            本研究では，1つの面を100当分することでグリッドを作成した．
+        (b) 球面モデルにおけるシミュレーションの時間発展．
+    }
+    \label{fig:model_sphere}
+\end{figure}
 
 まず，ある大きさのGeodesic Grid~\cite{Geodesic}を用意し，
 その頂点に粒子を配置し辺の部分をバネとすることで初期状態とする．
@@ -167,20 +166,6 @@ $t=t_{max}$で$T=0$になるような線形アニーリングを再現してい�
 移動した$R_i$を球面上に射影し直すことで常に粒子が球面上にとどまるように計算を繰り返していく．
 他の処理に関しては元のモデルと同じである．
 本研究では，正二十面体の面を100等分し1002頂点からなるGeodesic Gridを初期状態として用いた．
-
-\begin{figure}
-\centering
-\includesvg{image/model_sphere.svg}
-\caption{
-    球面モデルの模式図．
-    (a) Geodesic Grid~\cite{Geodesic}の構築方法．
-        正二十面体の面を三角形に等分割し，頂点を球面に射影することで構築する．
-        球面モデルにおいては，Geodesic Gridを初期状態としてシミュレーションを行う．
-        本研究では，1つの面を100当分することでグリッドを作成した．
-    (b) 球面モデルにおけるシミュレーションの時間発展．
-}
-\label{fig:model_sphere}
-\end{figure}
 
 
 \section{実装}
@@ -206,7 +191,6 @@ $E=\frac{1}{2}\kappa\l_0^2\tilde{E}$
 でスケールし無次元化した．
 以下，特に記述がなければ物理量は無次元化されたものとする．
 
-
 プログラムはC++言語で記述し，数値計算には線形代数ライブラリEigen~\cite{eigenweb}を使用した．
 データの可視化にはParaView~\cite{paraview}とPOV-Ray~\cite{povray}をそれぞれ用いた．
 計算はラップトップPC上(Intel Core i5-7300U CPU)で並列実行した．
@@ -216,33 +200,32 @@ $E=\frac{1}{2}\kappa\l_0^2\tilde{E}$
 シミュレーションで得られた構造は定量的に解析される必要がある．
 本研究では構造の特徴として孔の大きさの分布を考えた．
 
-\subsection{孔の検出アルゴリズム}
 
+\subsection{孔の検出アルゴリズム}
 得られた構造のポリゴンとその構造に対して十分小さなグリッドを持つグリッドを重ね合わせ，
 三角形が重なり合わないグリッドの連続領域を深さ優先探索などのアルゴリズムにより検出し，
-その領域を孔とみなして面積などの特徴量を解析に用いる手法を開発した．
-
-
+その領域を孔とみなして面積などの特徴量を解析に用いる手法を開発した
+(図\ref{fig:xor})．
 \begin{figure}
-\centering
-\includesvg{image/xor.svg}
-\caption{
-    孔の検出方法．
-    検出したい構造とグリッドを重ね合わせ，
-    両者の全ての三角形対に対して三角形の交差判定を行うことで，
-    両者が重なり合わない部分，つまり孔を近似的に抽出することができる．
-    (a) シミュレーションにより得られた構造のポリゴン．
-    (b) 検出に用いる十分に細かいグリッド．
-    (c) 両者を重ね合わせた状態．
-    (d) 構造のポリゴンと交差しないグリッド上の三角形．
-}
-\label{fig:xor}
+    \centering
+    \includesvg{image/xor.svg}
+    \caption{
+        孔の検出方法．
+        検出したい構造とグリッドを重ね合わせ，
+        両者の全ての三角形対に対して三角形の交差判定を行うことで，
+        両者が重なり合わない部分，つまり孔を近似的に抽出することができる．
+        (a) シミュレーションにより得られた構造のポリゴン．
+        (b) 検出に用いる十分に細かいグリッド．
+        (c) 両者を重ね合わせた状態．
+        (d) 構造のポリゴンと交差しないグリッド上の三角形．
+    }
+    \label{fig:xor}
 \end{figure}
 
-
-孔の検出で行いたい処理は，
+孔の検出で行う処理は，
 得られた構造のポリゴンの三角形とグリッドを構成するポリゴンの三角形との交差判定を繰り返し行うことで実現できる．
 三角形の交差判定に必要な計算機幾何の基本的なアルゴリズムについて説明する．
+
 
 \subsubsection{点と直線の位置関係}
 2次元平面の2点が，ある直線を堺にどちら側に存在するかを議論する方法について説明する．
@@ -253,65 +236,68 @@ $a\times b$の符号を調べれば良い．
 例えば2点$p_1$，$p_2$が直線を堺に同じ側に存在する場合は，この外積の符号が一致する．
 逆に直線を堺に分けられている場合は外積の符号が一致しない．
 
+
 \subsubsection{線分と線分の交差判定}
 点と直線の位置関係を応用して，線分と線分の交差判定を行うことができる．
-つまり線分と線分の交差は4回の外積演算により判定することができる．
-
+つまり線分と線分の交差は4回の外積演算により判定することができる
+(図\ref{fig:segment_segment})．
 \begin{figure}
-\centering
-\includesvg{image/segment_segment.svg}
-\caption{
-    点と直線の位置関係をベクトルの外積を用いて議論する方法と，
-    それを応用した線分と線分の交差判定．
-    (a) 直線上の2点$q_1$と$q_2$をこの順番を保ったまま$p$からの2本のベクトルを引き，
-        その外積の符号を考える．
-        $p$を直線に対して左右に移動するとその外積の符号は変化する．
-    (b) 線分と線分の交差判定は，
-        線分の2つの端点がもう一方の直線に対して反対側に存在することを2線分両方について言えば良い．
-        つまり4回の外積演算で線分と線分の交差判定を行うことができる．
-}
-\label{fig:segment_segment}
+    \centering
+    \includesvg{image/segment_segment.svg}
+    \caption{
+        点と直線の位置関係をベクトルの外積を用いて議論する方法と，
+        それを応用した線分と線分の交差判定．
+        (a) 直線上の2点$q_1$と$q_2$をこの順番を保ったまま$p$からの2本のベクトルを引き，
+            その外積の符号を考える．
+            $p$を直線に対して左右に移動するとその外積の符号は変化する．
+        (b) 線分と線分の交差判定は，
+            線分の2つの端点がもう一方の直線に対して反対側に存在することを
+            2線分両方について言えば良い．
+            つまり4回の外積演算で線分と線分の交差判定を行うことができる．
+    }
+    \label{fig:segment_segment}
 \end{figure}
+
 
 \subsubsection{点と三角形の交差判定}
 三角形の3辺に対して，ある点が全て同じ側に存在する(3つの外積の符号が一致する)場合，
 その点は三角形の内部にあることが言える．
-つまり点が三角形に内包されるか否かを3回の外積演算により判定することができる．
-
+つまり点が三角形に内包されるか否かを3回の外積演算により判定することができる
+(図\ref{fig:point_triangle})．
 \begin{figure}
-\centering
-\includesvg{image/point_triangle.svg}
-\caption{
-    点の三角形内外判定アルゴリズム．
-    点$p$から点$q_1$，$q_2$(あるいは$q_2$，$q_3$や$q_3$，$q_1$)へのベクトルの外積を調べ，
-    それら3つの値の符号を見ることにより判定できる．
-    (a) 点が三角形の外側にある場合は外積の符号が一致しない．
-        左2つは外積の値が負になるが，一番右のケースで正になる．
-    (b) 点が内側にある場合は外積の符号が全て一致する．
-}
-\label{fig:point_triangle}
+    \centering
+    \includesvg{image/point_triangle.svg}
+    \caption{
+        点の三角形内外判定アルゴリズム．
+        点$p$から点$q_1$，$q_2$(あるいは$q_2$，$q_3$や$q_3$，$q_1$)へのベクトルの外積を調べ，
+        それら3つの値の符号を見ることにより判定できる．
+        (a) 点が三角形の外側にある場合は外積の符号が一致しない．
+            左2つは外積の値が負になるが，一番右のケースで正になる．
+        (b) 点が内側にある場合は外積の符号が全て一致する．
+    }
+    \label{fig:point_triangle}
 \end{figure}
+
 
 \subsubsection{三角形と三角形の交差判定}
 三角形と三角形の交差判定は，先に説明した線分と線分の交差判定と点と三角形の交差判定を複数回行うことで実現できる．
 例えば，三角形と三角形の位置関係は図\ref{fig:triangle_triangle}にあるような場合が考えられる．
 図\ref{fig:triangle_triangle}(c)のような場合に関しては線分と線分の交差判定が必要になる．
-%TODO 図
-
 \begin{figure}
-\centering
-\includesvg{image/triangle_triangle.svg}
-\caption{
-    三角形と三角形の位置関係の例．
-    (a) 交差しない場合．
-    (b) 一方の頂点が他方に内包される場合．
-    (c) 一方がもう一方に完全に内包される場合．
-    (d) 一方の頂点が他方に内包されないが三角形が交差している場合．
-        (a)から(c)は三角形と点の交差判定を行うだけで判定できるが，
-        (d)を検出するためは線分の交差判定を行う必要がある．
-}
-\label{fig:triangle_triangle}
+    \centering
+    \includesvg{image/triangle_triangle.svg}
+    \caption{
+        三角形と三角形の位置関係の例．
+        (a) 交差しない場合．
+        (b) 一方の頂点が他方に内包される場合．
+        (c) 一方がもう一方に完全に内包される場合．
+        (d) 一方の頂点が他方に内包されないが三角形が交差している場合．
+            (a)から(c)は三角形と点の交差判定を行うだけで判定できるが，
+            (d)を検出するためは線分の交差判定を行う必要がある．
+    }
+    \label{fig:triangle_triangle}
 \end{figure}
+
 
 \subsubsection{球面上の三角形の交差判定}
 2次元平面では正方格子を用いて孔の面積を算出することも可能であるが，
@@ -326,18 +312,16 @@ $a\times b$の符号を調べれば良い．
 \subsection{孔の検出例}
 以上のアルゴリズムを用いた孔の検出例を図\ref{fig:hole_detection}に示す．
 図中では粗いグリッド用いているが(図\ref{fig:hole_detection}b)，
-%TODO 数値
 実際の解析では20480個のグリッドからなるGeodesic Gridを用いている，
-
 \begin{figure}
-\centering
-\includesvg{image/hole_detection.svg}
-\caption{
-    孔の検出例．
-    わかりやすさのために画像では構造の半分のみを描画している．
-    (a) 検出したい構造のポリゴン．
-    (b) 検出に用いるGiodesic Grid．
-    (c) 検出された孔．
-}
-\label{fig:hole_detection}
+    \centering
+    \includesvg{image/hole_detection.svg}
+    \caption{
+        孔の検出例．
+        わかりやすさのために画像では構造の半分のみを描画している．
+        (a) 検出したい構造のポリゴン．
+        (b) 検出に用いるGiodesic Grid．
+        (c) 検出された孔．
+    }
+    \label{fig:hole_detection}
 \end{figure}

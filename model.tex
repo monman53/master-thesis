@@ -310,7 +310,7 @@ $a\times b$の符号を調べれば良い．
 2次元平面で外積を考えたように，3次元ではその行列の行列式の符号をみることで三角形の交差判定を行うことができる．
 
 
-\subsection{孔の検出例}
+\subsection{孔の検出}
 以上のアルゴリズムを用いた孔の検出例を図\ref{fig:hole_detection}に示す．
 \begin{figure}
     \centering
@@ -326,3 +326,7 @@ $a\times b$の符号を調べれば良い．
 \end{figure}
 図中では粗いグリッド用いているが(図\ref{fig:hole_detection}b)，
 実際の解析では20480個のグリッドからなるGeodesic Gridを用いている，
+
+この孔の分布をヒストグラムにし，
+関数$y=ae^{-bx}$で回帰を行う．
+この$b$の値を用いて孔の出来やすさについて第\ref{sec:result}章で議論する．

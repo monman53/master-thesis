@@ -1,26 +1,21 @@
 % \documentclass[12pt, a4paper]{jsreport}
-
 \documentclass[a4paper,11pt,oneside,openany,report]{jsbook}
-
 % \usepackage[left=30mm,right=30mm,top=25mm,bottom=25mm]{geometry}
+%================
+% パッケージ・マクロ
+%================
+% テンプレート
 \usepackage{cscover}
-\usepackage[dvipdfmx]{graphicx}
-\usepackage[nobreak]{cite}
+
+% for hyperref
 \usepackage[a4paper,dvipdfmx,pdfdisplaydoctitle=true,%
     bookmarks=true,bookmarksnumbered=true,bookmarkstype=toc,bookmarksopen=true,%
     pdftitle={DNAゲルのミクロパターン形成の数理モデルの構築と数値的な解析},%
     pdfauthor={阪本哲郎}%
     ]{hyperref}
-
-%================
-% パッケージ・マクロ
-%================
-
-% for hyperref
-% \usepackage[dvipdfmx]{hyperref,graphicx}
 \usepackage{pxjahyper}
 \hypersetup{
-    pdfborder = {0 0 0},
+    % pdfborder = {0 0 0},
 }
 % フォント
 \AtBeginDvi{\special{pdf:mapfile ptex-ipa.map}}
@@ -31,6 +26,8 @@
 \usepackage{svg}
 % 単位
 \usepackage{siunitx}
+% 引用数字を行頭にしない
+\usepackage[nobreak]{cite}
 % ヘッダ
 % \pagestyle{headings}
 
@@ -63,10 +60,10 @@
 
 \supervisorname{指導教員}
 \supervisor{瀧ノ上 正浩}
-% \supervisorname{副査教員}
-% \supervisor{山村 雅幸}
-% \supervisorname{副査教員}
-% \supervisor{関嶋 政和}
+% \dsupervisorname{副査教員}
+% \dsupervisor{山村 雅幸}
+% \dsupervisorname{副査教員}
+% \dsupervisor{関嶋 政和}
 
 
 

@@ -1,11 +1,23 @@
-\documentclass[12pt, a4paper]{jsreport}
+% \documentclass[12pt, a4paper]{jsreport}
+
+\documentclass[a4paper,11pt,oneside,openany,report]{jsbook}
+
+% \usepackage[left=30mm,right=30mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{cscover}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[nobreak]{cite}
+\usepackage[a4paper,dvipdfmx,pdfdisplaydoctitle=true,%
+    bookmarks=true,bookmarksnumbered=true,bookmarkstype=toc,bookmarksopen=true,%
+    pdftitle={DNAゲルのミクロパターン形成の数理モデルの構築と数値的な解析},%
+    pdfauthor={阪本哲郎}%
+    ]{hyperref}
 
 %================
 % パッケージ・マクロ
 %================
 
 % for hyperref
-\usepackage[dvipdfmx]{hyperref,graphicx}
+% \usepackage[dvipdfmx]{hyperref,graphicx}
 \usepackage{pxjahyper}
 \hypersetup{
     pdfborder = {0 0 0},
@@ -20,16 +32,41 @@
 % 単位
 \usepackage{siunitx}
 % ヘッダ
-\pagestyle{headings}
+% \pagestyle{headings}
 
+
+
+\renewcommand{\bibname}{参考文献}
+\setcounter{tocdepth}{2}
+\pagestyle{plain}
+
+\newcommand{\TODO}[1]{\textbf{[TODO: #1]}}
+%\renewcommand{\TODO}[1]{}
 
 %================
 % メタ情報
 %================
 
-\title{DNAゲルのミクロパターン形成の数理モデル \\ の構築と数値的な解析}
+\thesistype{修士論文}
+%\thesistype{博士論文}
+% \title{学位論文の\\体裁に関する研究}
+\title{DNAゲルのミクロパターン形成の\\数理モデルの構築と数値的な解析}
 \author{阪本 哲郎}
+\studentid{18M31094}
 \date{2020-01-27}
+\affiliation{%
+  東京工業大学\\
+  情報理工学院\\
+  知能情報コース
+  % 情報工学コース
+}
+
+\supervisorname{指導教員}
+\supervisor{瀧ノ上 正浩}
+% \supervisorname{副査教員}
+% \supervisor{山村 雅幸}
+% \supervisorname{副査教員}
+% \supervisor{関嶋 政和}
 
 
 
@@ -38,11 +75,8 @@
 %================
 % 表紙
 %================
+\frontmatter
 \maketitle
-
-% ページ数の表記をiからローマ数字に
-\renewcommand{\thepage}{\roman{page}}
-\setcounter{tocdepth}{2}
 
 %================
 % 概要
@@ -53,65 +87,56 @@
 %================
 % 目次
 %================
+\setcounter{tocdepth}{2}
 \tableofcontents
-\clearpage
+% \listoffigures
 
 
 %================
 % 内容
 %================
-% ページ数の表記を1からアラビア数字に
-\setcounter{page}{1}
-\renewcommand{\thepage}{\arabic{page}}
+\mainmatter
 
 %----------------
 % イントロ
 %----------------
 \input{introduction.tex}
-\clearpage
 
 %----------------
 % より詳しいイントロ
 %----------------
 \input{dnagel.tex}
-\clearpage
 
 %----------------
 % モデルの説明
 %----------------
 \input{model.tex}
-\clearpage
 
 %----------------
 % 結果
 %----------------
 \input{result.tex}
-\clearpage
 
 %----------------
 % カーンヒリアード
 %----------------
 \input{cahnhilliard.tex}
-\clearpage
 
 %----------------
 % 結論
 %----------------
 \input{conclusion.tex}
-\clearpage
 
 %----------------
 % 謝辞
 %----------------
 \input{acknowledgement.tex}
-\clearpage
 
 %----------------
 % 参考文献
 %----------------
-\bibliography{reference}
 \bibliographystyle{junsrt}
-% \bibliographystyle{plain}
+\bibliography{reference}
 % \input{appendix}
 % ----------------------------------------------------------------------
 \end{document}

@@ -169,42 +169,9 @@ $t_{max}=20000$，$t_{max}=40000$，$t_{max}=60000$，$t_{max}=80000$の場合�
 \subsubsection{アニーリング速度依存性}
 粘性抵抗$\zeta$の値を$12000$に固定し，
 $t_{max}$の値を変えて実験を行った．
-% (図\ref{fig:result_sphere_anearing_speed})．
-% \begin{figure}
-%     \centering
-%     \includesvg{image/result_sphere_anearing_speed.svg}
-%     \caption{
-%         球面モデルにおける構造のアニーリング速度依存性．
-%         温度変化ありのモデルにおいてアニーリング速度を変えて実験するためには$t_{max}$を変更する．
-%         式\ref{eq:thermal}より，$t_{max}$が小さいほどアニーリング速度が速い．
-%         画像は，$t=t_{max}$のときの構造のCGである．
-%         (a) $t_{max}=20000$．
-%         (b) $t_{max}=40000$．
-%         (c) $t_{max}=60000$．
-%         (d) $t_{max}=80000$．
-%     }
-%     \label{fig:result_sphere_anearing_speed}
-% \end{figure}
 $t=t_{max}$の構造の解析を行ったところ，
 アニーリング速度が大きいほど($t_{max}$が小さいほど)孔の形成がされにくいことがわかった
 (図\ref{fig:result_sphere_anearing_speed_comb})．
-% (図\ref{fig:result_sphere_anearing_speed_hist})．
-% \begin{figure}
-%     \centering
-%     \includesvg{image/result_sphere_anearing_speed_hist.svg}
-%     \caption{
-%         孔の大きさの頻度分布のアニーリング速度$\zeta$依存性．
-%         図\ref{fig:result_sphere_anearing_speed}で示した構造に対する解析結果．
-%         横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
-%         アニーリング速度が遅いほど($t_{max}$が大きいほど)
-%         分布は右側にシフトしており孔が成長しやすいと言える．
-%         (a) $t_{max}=20000$．
-%         (b) $t_{max}=40000$．
-%         (c) $t_{max}=60000$．
-%         (d) $t_{max}=80000$．
-%     }
-%     \label{fig:result_sphere_anearing_speed_hist}
-% \end{figure}
 \begin{figure}
     \centering
     \includesvg{image/result_sphere_anearing_speed_comb.svg}
@@ -219,10 +186,10 @@ $t=t_{max}$の構造の解析を行ったところ，
         この値が大きいほど孔が形成されにくい．
         アニーリング速度が遅いほど($t_{max}$が大きいほど)
         分布は右側にシフトしており孔が成長しやすいと言える．
-        (a) $t_{max}=20000$．
-        (b) $t_{max}=40000$．
-        (c) $t_{max}=60000$．
-        (d) $t_{max}=80000$．
+        (a) $t_{max}=80000$．
+        (b) $t_{max}=60000$．
+        (c) $t_{max}=40000$．
+        (d) $t_{max}=20000$．
     }
     \label{fig:result_sphere_anearing_speed_comb}
 \end{figure}
@@ -231,38 +198,9 @@ $t=t_{max}$の構造の解析を行ったところ，
 \subsubsection{粘性抵抗依存性}
 次に$t_{max}$の値を$60000$に固定し，
 粘性抵抗$\zeta$の値を変えて実験を行った
-% (図\ref{fig:result_sphere_friction_constant})．
-% \begin{figure}
-%     \centering
-%     \includesvg{image/result_sphere_friction_constant.svg}
-%     \caption{
-%         球面モデルにおける構造の粘性抵抗依存性．
-%         (a) $\zeta=8000$．
-%         (b) $\zeta=12000$．
-%         (c) $\zeta=16000$．
-%         (d) $\zeta=20000$．
-%     }
-%     \label{fig:result_sphere_friction_constant}
-% \end{figure}
 $t=t_{max}$の構造の解析を行ったところ，
 粘性抵抗$\zeta$が大きいほど孔の形成がされにくいことがわかった
 (図\ref{fig:result_sphere_friction_constant_comb})．
-% (図\ref{fig:result_sphere_friction_constant_hist})．
-% \begin{figure}
-%     \centering
-%     \includesvg{image/result_sphere_friction_constant_hist.svg}
-%     \caption{
-%         孔の大きさの頻度分布の粘性抵抗$\zeta$依存性．
-%         横軸は正規化された孔の大きさ，縦軸は頻度(8サンプルの合計個数)である．
-%         図\ref{fig:result_sphere_friction_constant}で示した構造に対する解析結果．
-%         $\zeta$が小さいほど分布は右側にシフトしており孔が成長しやすいと言える．
-%         (a) $\zeta=8000$．
-%         (b) $\zeta=12000$．
-%         (c) $\zeta=16000$．
-%         (d) $\zeta=20000$．
-%     }
-%     \label{fig:result_sphere_friction_constant_hist}
-% \end{figure}
 \begin{figure}
     \centering
     \includesvg{image/result_sphere_friction_constant_comb.svg}
@@ -274,10 +212,10 @@ $t=t_{max}$の構造の解析を行ったところ，
         右上の数字は関数$y=ae^{-bx}$で回帰したときの$b$の値で，
         この値が大きいほど孔が形成されにくい．
         $\zeta$が小さいほど分布は右側にシフトしており孔が成長しやすいと言える．
-        (a) $\zeta=8000$．
-        (b) $\zeta=12000$．
-        (c) $\zeta=16000$．
-        (d) $\zeta=20000$．
+        (a) $\zeta=20000$．
+        (b) $\zeta=16000$．
+        (c) $\zeta=12000$．
+        (d) $\zeta=8000$．
     }
     \label{fig:result_sphere_friction_constant_comb}
 \end{figure}

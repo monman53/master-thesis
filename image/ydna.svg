@@ -83,8 +83,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="190.48297"
-     inkscape:cy="104.86554"
+     inkscape:cx="135.93473"
+     inkscape:cy="175.57622"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1397,5 +1397,49 @@
        height="68.791664"
        x="-65.09301"
        y="256.33487" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-105.45162"
+       y="266.866"
+       id="text12747-6"><tspan
+         sodipodi:role="line"
+         id="tspan12745-2"
+         x="-105.45162"
+         y="266.866"
+         style="stroke-width:0.26458332">3'</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-112.66994"
+       y="293.03049"
+       id="text12743-6"><tspan
+         sodipodi:role="line"
+         id="tspan12741-2"
+         x="-112.66994"
+         y="293.03049"
+         style="stroke-width:0.26458332">5'</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-105.0507"
+       y="292.39023"
+       id="text12747-0"><tspan
+         sodipodi:role="line"
+         id="tspan12745-4"
+         x="-105.0507"
+         y="292.39023"
+         style="stroke-width:0.26458332">3'</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-80.530792"
+       y="285.74741"
+       id="text12743-6-9"><tspan
+         sodipodi:role="line"
+         id="tspan12741-2-9"
+         x="-80.530792"
+         y="285.74741"
+         style="stroke-width:0.26458332">5'</tspan></text>
   </g>
 </svg>
